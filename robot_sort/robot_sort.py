@@ -96,9 +96,21 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-        # Fill this out
-        pass
+        def swap(i, j):
+            self._list[i], self._list[j] = self._list[j], self._list[i]
 
+        n = len(self._list)
+        swapped = True
+
+        x = -1
+        while swapped:
+            swapped = False
+            x = x + 1
+            for i in range(1, n-x):
+                if self._list[i - 1] > self._list[i]:
+                    swap(i - 1, i)
+                    swapped = True             
+        return self._list
 
 if __name__ == "__main__":
     # Test our your implementation from the command line
