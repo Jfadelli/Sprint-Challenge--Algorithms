@@ -13,7 +13,7 @@ def count_th(word, count=0):
     # slice the word at every second index, and check for the letters th
     if word[:2] == 'th':
         #if the letters are found recursively call count_th, increment the index to check by 1, and add 1 to count
-        return count_th(word[1:])+1
+        return count_th(word[2:])+1
     #return the last index of the array
     return count_th(word[1:])
-    
+

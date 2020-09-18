@@ -4,10 +4,10 @@
 
 a) O(1)
 
-b) O(n)
+b) O(n logn)
     in testing, the duration of the run time seems to go up logarithmically, with 10,000,000 not successfully completeing.
 
-c) 0(logn)
+c) 0(n)
 
 ## Exercise II
 

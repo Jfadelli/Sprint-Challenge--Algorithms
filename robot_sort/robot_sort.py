@@ -96,21 +96,60 @@ class SortingRobot:
         """
         Sort the robot's list. 
         """
-        def swap(i, j):
-            self._list[i], self._list[j] = self._list[j], self._list[i]
+        # def swap(i, j):
+        #     self._list[i], self._list[j] = self._list[j], self._list[i]
 
-        n = len(self._list)
-        swapped = True
+        # n = len(self._list)
+        # swapped = True
 
-        x = -1
-        while swapped:
-            swapped = False
-            x = x + 1
-            for i in range(1, n-x):
-                if self._list[i - 1] > self._list[i]:
-                    swap(i - 1, i)
-                    swapped = True             
-        return self._list
+        # x = -1
+        # while swapped:
+        #     swapped = False
+        #     x = x + 1
+        #     for i in range(1, n-x):
+        #         if self._list[i - 1] > self._list[i]:
+        #             swap(i - 1, i)
+        #             swapped = True             
+        # return self._list
+        
+    def sort(self):
+        """
+        Sort the robot's list. 
+        """
+        #arm the sorting robot
+        self.set_light_on()
+        #init sort loop
+        while self.light_is_on():
+            #sorting loop running
+            self.set_light_off()
+            #pick up first item
+            self.swap_item()
+
+            #evaluate path right
+            while self.can_move_right():
+                self.move_right()
+
+                #compare items
+                if self.compare_item() == 1:
+                    #swap items
+                    self.swap_item()
+                    #arm the robot
+                    self.set_light_on()
+
+            #no right path available, evaluate path left
+            while self.can_move_left():
+                #compare path left to current val
+                if self.compare_item() != None:
+                    self.move_left()
+                else:
+                    break
+            #get next item    
+            self.swap_item()
+            #go right
+            self.move_right()
+    
+
+
 
 if __name__ == "__main__":
     # Test our your implementation from the command line
