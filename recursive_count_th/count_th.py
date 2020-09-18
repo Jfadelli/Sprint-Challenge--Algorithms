@@ -3,16 +3,16 @@ Your function should take in a single parameter (a string `word`)
 Your function should return a count of how many occurences of ***"th"*** occur within `word`. Case matters.
 Your function must utilize recursion. It cannot contain any loops.
 '''
-def count_th(word):
-    th_count = 0
+
+    # initialize count value at 0
+def count_th(word, count=0):
 
     # if the word is only one letter it should return false or 0
-    if len(word) <= 2:
+    if len(word) < 2:
         return 0 
-    
-    #iterate through the word by using slice, and check for the letters th
+    # slice the word at every second index, and check for the letters th
     if word[:2] == 'th':
-        th_count += 1
-        return count_th(word)
-        
-    return th_count
+        #if the letters are found recursively call count_th, increment the index to check by 1, and add 1 to count
+        return count_th(word[1:])+1
+    #return the last index of the array
+    return count_th(word[1:])
