@@ -1,6 +1,6 @@
 ## test b)
 import time
-    
+
 def test_b():
     n = input('n input : ')
     if n == 'test':

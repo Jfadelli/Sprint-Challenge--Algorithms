@@ -16,3 +16,4 @@ def count_th(word, count=0):
         return count_th(word[1:])+1
     #return the last index of the array
     return count_th(word[1:])
+    

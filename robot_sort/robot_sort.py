@@ -94,7 +94,7 @@ class SortingRobot:
 
     def sort(self):
         """
-        Sort the robot's list.
+        Sort the robot's list. 
         """
         def swap(i, j):
             self._list[i], self._list[j] = self._list[j], self._list[i]
